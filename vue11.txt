@@ -1,0 +1,18 @@
+11/1导航钩子
+
+//如何知道路由发生了跳转? -> 监听路由对象，$route.params.
+		//如何知道路由跳转时的前一个路由? -> 只能用路由钩子.(导航守卫).
+		//路由钩子->全局钩子,路由钩子,组件钩子(局部钩子).
+		//3种时机触发的钩子,
+		//	进入前(beforeRouteEnter),(全局的叫beforeEach);
+		//	路由发生了切换(针对于动态路由,beforeRouteUpdate);
+		//	离开前(beforeRouteLeave),(全局的叫AfterEach); 
+参数（to，from。next）
+//to,当前要跳转到的路由,from就是上一个路由,next是回调函数(用于跳转的进一步操作)
+			//to和from都是路由对象($route)
+			//如果要正常跳转,一定需要调用next.否则无法成功跳转.
+			//next的回调 -> 下一步操作做什么.next(false) -> 终止该次跳转.
+
+
+//beforeRouteEnter内无法通过this获取组件的实例.
+			//但是可以通过给next传递回调函数,回调函数内使用组件实例.
